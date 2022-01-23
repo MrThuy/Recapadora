@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="340" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.2100000000000035"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="uf" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.uf]]></fieldDescription>
+	</field>
+	<field name="fone" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.fone]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="endereco" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.endereco]]></fieldDescription>
+	</field>
+	<field name="ie" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.ie]]></fieldDescription>
+	</field>
+	<field name="dataVencimento" class="java.util.Date">
+		<fieldDescription><![CDATA[dataVencimento]]></fieldDescription>
+	</field>
+	<field name="cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.cidade]]></fieldDescription>
+	</field>
+	<field name="parcela" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id.parcela]]></fieldDescription>
+	</field>
+	<field name="bairro" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.bairro]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.nome]]></fieldDescription>
+	</field>
+	<field name="cnpg" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.cnpg]]></fieldDescription>
+	</field>
+	<field name="cep" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.cep]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.cpf]]></fieldDescription>
+	</field>
+	<field name="contato" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.contato]]></fieldDescription>
+	</field>
+	<field name="numero" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id.numero]]></fieldDescription>
+	</field>
+	<field name="celular" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.celular]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="273" splitType="Stretch">
+			<rectangle>
+				<reportElement x="392" y="0" width="163" height="24"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="146" height="24"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="80" width="555" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="32" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="1" width="113" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}+"/"+$F{parcela}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="389" y="0" width="45" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R$]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="444" y="0" width="111" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="32" y="30" width="208" height="16"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{dataVencimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="240" y="30" width="315" height="16"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[pagar (ei/emos) por esta única via de ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="46" width="229" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOTA PROMISSÓRIA a:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="64" width="315" height="16"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ou à sua ordem a quantia de]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="80" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[erp.util.ERPExtenso.ValorPorExtenso($F{valor})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="100" width="555" height="16"/>
+				<textElement/>
+				<text><![CDATA[ em moeda corrente deste país, pagável em Videira - SC.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="129" width="86" height="16"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="145" width="86" height="16"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="161" width="86" height="16"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[CEP / Cidade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="177" width="86" height="16"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Fone:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="193" width="86" height="16"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[CNPJ/CPF:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="93" y="129" width="462" height="16"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="145" width="462" height="16"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endereco}+( $F{bairro}.isEmpty() ? "" : " - " + $F{bairro} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="161" width="158" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cep} + " - " + $F{cidade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="303" y="161" width="86" height="16"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="392" y="161" width="100" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{uf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="177" width="158" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="193" width="210" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{cpf}.replaceAll("-","").replaceAll("\\.","").trim().isEmpty()? $F{cnpg}: $F{cpf} )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="303" y="193" width="86" height="16"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Insc. Est.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="392" y="193" width="163" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ie}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="21" y="240" width="230" height="1"/>
+			</line>
+			<line>
+				<reportElement x="325" y="242" width="230" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="21" y="241" width="229" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<text><![CDATA[Assinatura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="243" width="229" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<text><![CDATA[Avalista]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="257" width="54" height="16"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[CNPJ/CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="257" width="54" height="16"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[CNPJ/CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="66" width="54" height="14"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[CNPJ/CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="32" height="16"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[Ao (s)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="32" y="0" width="1" height="24"/>
+			</line>
+			<line>
+				<reportElement x="434" y="1" width="1" height="23"/>
+			</line>
+			<staticText>
+				<reportElement x="303" y="177" width="86" height="16"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="392" y="177" width="163" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{celular}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

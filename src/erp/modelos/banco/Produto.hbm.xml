@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.Produto" table="produto" catalog="uniao">
+        <id name="idProduto" type="java.lang.Integer">
+            <column name="ID_PRODUTO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="ID_USUARIO" />
+        </many-to-one>
+        <many-to-one name="unidadeMedida" class="erp.modelos.banco.UnidadeMedida" fetch="select">
+            <column name="ID_UNIDADE" length="2" not-null="true" />
+        </many-to-one>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="200" />
+        </property>
+        <property name="peso" type="java.lang.Float">
+            <column name="PESO" precision="12" scale="0" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="DATA_INCLUSAO" length="19" />
+        </property>
+        <property name="flagAtivo" type="boolean">
+            <column name="FLAG_ATIVO" not-null="true" />
+        </property>
+        <property name="classificacao" type="string">
+            <column name="CLASSIFICACAO" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

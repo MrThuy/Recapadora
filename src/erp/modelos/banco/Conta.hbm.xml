@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.Conta" table="conta" catalog="uniao">
+        <id name="idconta" type="int">
+            <column name="idconta" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <property name="descricao" type="string">
+            <column name="descricao" length="200" />
+        </property>
+        <property name="flagPadrao" type="java.lang.Character">
+            <column name="flag_padrao" length="1" />
+        </property>
+        <property name="observacaoEntrada" type="string">
+            <column name="observacao_entrada" length="200" />
+        </property>
+        <property name="observacaoSaida" type="string">
+            <column name="observacao_saida" length="200" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+        <property name="flagAtivo" type="java.lang.Boolean">
+            <column name="`flag-ativo`" />
+        </property>
+        <set name="lancamentoCaixas" inverse="true">
+            <key>
+                <column name="idconta" not-null="true" />
+            </key>
+            <one-to-many class="erp.modelos.banco.LancamentoCaixa" />
+        </set>
+    </class>
+</hibernate-mapping>

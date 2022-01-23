@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.Usuario" table="usuario" catalog="uniao">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="ID_USUARIO" />
+            <generator class="identity" />
+        </id>
+        <property name="nome" type="string">
+            <column name="NOME" length="100" unique="true" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="DATA_INCLUSAO" length="19" />
+        </property>
+        <property name="flagAtivo" type="java.lang.Boolean">
+            <column name="FLAG_ATIVO" />
+        </property>
+        <property name="senha" type="string">
+            <column name="SENHA" length="45" />
+        </property>
+        <set name="baixaPagars" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.BaixaPagar" />
+        </set>
+        <set name="contas" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.Conta" />
+        </set>
+        <set name="tipoPagamentos" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TipoPagamento" />
+        </set>
+        <set name="pneus" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.Pneu" />
+        </set>
+        <set name="correntistas" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.Correntista" />
+        </set>
+        <set name="lancamentoCaixas" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.LancamentoCaixa" />
+        </set>
+        <set name="marcas" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.Marca" />
+        </set>
+        <set name="unidadeMedidas" inverse="true">
+            <key>
+                <column name="ID_USUARIO" />
+            </key>
+            <one-to-many class="erp.modelos.banco.UnidadeMedida" />
+        </set>
+        <set name="tituloRecebers" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TituloReceber" />
+        </set>
+        <set name="tipoTitulos" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TipoTitulo" />
+        </set>
+        <set name="tamanhoPneus" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TamanhoPneu" />
+        </set>
+        <set name="produtos" inverse="true">
+            <key>
+                <column name="ID_USUARIO" />
+            </key>
+            <one-to-many class="erp.modelos.banco.Produto" />
+        </set>
+        <set name="tituloPagars" inverse="true">
+            <key>
+                <column name="idusuario" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TituloPagar" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/uniao</property>
+    <property name="hibernate.connection.username">uniao</property>
+    <property name="hibernate.connection.password">cargapesada</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <mapping resource="erp/modelos/banco/TipoTitulo.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/Pneu.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/Conta.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/TamanhoPneu.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/Usuario.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/Produto.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/BaixaPagar.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/BaixaReceber.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/UnidadeMedida.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/TipoPagamento.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/LancamentoCaixa.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/Marca.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/SaldoCaixa.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/Correntista.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/TituloPagar.hbm.xml"/>
+    <mapping resource="erp/modelos/banco/TituloReceber.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

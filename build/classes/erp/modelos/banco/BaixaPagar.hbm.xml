@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.BaixaPagar" table="baixa_pagar" catalog="uniao">
+        <composite-id name="id" class="erp.modelos.banco.BaixaPagarId">
+            <key-property name="idpagamento" type="int">
+                <column name="idpagamento" />
+            </key-property>
+            <key-property name="numero" type="int">
+                <column name="numero" />
+            </key-property>
+            <key-property name="parcela" type="int">
+                <column name="parcela" />
+            </key-property>
+            <key-property name="idcorrentista" type="int">
+                <column name="idcorrentista" />
+            </key-property>
+            <key-property name="idtipotitulo" type="int">
+                <column name="idtipotitulo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="tipoPagamento" class="erp.modelos.banco.TipoPagamento" fetch="select">
+            <column name="idtipopagamento" />
+        </many-to-one>
+        <many-to-one name="tituloPagar" class="erp.modelos.banco.TituloPagar" update="false" insert="false" fetch="select">
+            <column name="numero" not-null="true" />
+            <column name="parcela" not-null="true" />
+            <column name="idcorrentista" not-null="true" />
+            <column name="idtipotitulo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <property name="valor" type="big_decimal">
+            <column name="valor" precision="17" />
+        </property>
+        <property name="juros" type="big_decimal">
+            <column name="juros" precision="17" />
+        </property>
+        <property name="dataPagamento" type="date">
+            <column name="data_pagamento" length="10" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="observacao" length="300" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

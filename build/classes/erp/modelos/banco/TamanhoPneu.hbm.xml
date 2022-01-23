@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.TamanhoPneu" table="tamanho_pneu" catalog="uniao">
+        <id name="idtamanhopneu" type="java.lang.Integer">
+            <column name="idtamanhopneu" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <property name="descricao" type="string">
+            <column name="descricao" length="200" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+        <set name="pneus" inverse="true">
+            <key>
+                <column name="idtamanho" not-null="true" />
+            </key>
+            <one-to-many class="erp.modelos.banco.Pneu" />
+        </set>
+    </class>
+</hibernate-mapping>

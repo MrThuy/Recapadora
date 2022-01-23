@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.SaldoCaixa" table="saldo_caixa" catalog="uniao">
+        <composite-id name="id" class="erp.modelos.banco.SaldoCaixaId">
+            <key-property name="idempresa" type="int">
+                <column name="idempresa" />
+            </key-property>
+            <key-property name="dataSaldo" type="date">
+                <column name="data_saldo" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="correntista" class="erp.modelos.banco.Correntista" update="false" insert="false" fetch="select">
+            <column name="idempresa" not-null="true" />
+        </many-to-one>
+        <property name="valor" type="big_decimal">
+            <column name="valor" precision="17" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.Correntista" table="correntista" catalog="uniao">
+        <id name="idcorrentista" type="java.lang.Integer">
+            <column name="idcorrentista" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="200" />
+        </property>
+        <property name="pesquisa" type="string">
+            <column name="pesquisa" length="200" />
+        </property>
+        <property name="endereco" type="string">
+            <column name="endereco" length="200" />
+        </property>
+        <property name="bairro" type="string">
+            <column name="bairro" length="100" />
+        </property>
+        <property name="cidade" type="string">
+            <column name="cidade" length="100" />
+        </property>
+        <property name="uf" type="string">
+            <column name="uf" length="2" />
+        </property>
+        <property name="cep" type="string">
+            <column name="cep" length="9" />
+        </property>
+        <property name="cnpg" type="string">
+            <column name="cnpg" length="18" />
+        </property>
+        <property name="cpf" type="string">
+            <column name="cpf" length="14" />
+        </property>
+        <property name="ie" type="string">
+            <column name="ie" length="100" />
+        </property>
+        <property name="fone" type="string">
+            <column name="fone" length="14" />
+        </property>
+        <property name="fone2" type="string">
+            <column name="fone2" length="14" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="14" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="14" />
+        </property>
+        <property name="contato" type="string">
+            <column name="contato" length="45" />
+        </property>
+        <property name="observasao" type="string">
+            <column name="observasao" length="2000" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+        <property name="flagAtivo" type="boolean">
+            <column name="flag_ativo" not-null="true" />
+        </property>
+        <property name="flagCliente" type="boolean">
+            <column name="flag_cliente" not-null="true" />
+        </property>
+        <property name="flagFornecedor" type="boolean">
+            <column name="flag_fornecedor" not-null="true" />
+        </property>
+        <property name="flagTransportador" type="boolean">
+            <column name="flag_transportador" not-null="true" />
+        </property>
+        <property name="flagFuncionario" type="boolean">
+            <column name="flag_funcionario" not-null="true" />
+        </property>
+        <property name="flagEmpresa" type="java.lang.Boolean">
+            <column name="flag_empresa" />
+        </property>
+        <property name="flagFinanceira" type="java.lang.Boolean">
+            <column name="flag_financeira" />
+        </property>
+        <property name="emailxml" type="string">
+            <column name="emailxml" length="100" />
+        </property>
+        <property name="emailcontato" type="string">
+            <column name="emailcontato" length="100" />
+        </property>
+        <set name="saldoCaixas" inverse="true">
+            <key>
+                <column name="idempresa" not-null="true" />
+            </key>
+            <one-to-many class="erp.modelos.banco.SaldoCaixa" />
+        </set>
+        <set name="tituloRecebers" inverse="true">
+            <key>
+                <column name="idfinanceira" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TituloReceber" />
+        </set>
+        <set name="tituloPagars" inverse="true">
+            <key>
+                <column name="idcorrentista" not-null="true" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TituloPagar" />
+        </set>
+    </class>
+</hibernate-mapping>

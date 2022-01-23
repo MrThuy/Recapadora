@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="uniao"/>
+  <table-filter match-name="correntista"/>
+  <table-filter match-name="baixa_pagar"/>
+  <table-filter match-name="pneu"/>
+  <table-filter match-name="unidade_medida"/>
+  <table-filter match-name="marca"/>
+  <table-filter match-name="conta"/>
+  <table-filter match-name="tipo_pagamento"/>
+  <table-filter match-name="titulo_pagar"/>
+  <table-filter match-name="tipo_titulo"/>
+  <table-filter match-name="saldo_caixa"/>
+  <table-filter match-name="tamanho_pneu"/>
+  <table-filter match-name="baixa_receber"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="lancamento_caixa"/>
+  <table-filter match-name="titulo_receber"/>
+  <table-filter match-name="produto"/>
+</hibernate-reverse-engineering>

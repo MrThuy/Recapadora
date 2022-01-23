@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.TipoTitulo" table="tipo_titulo" catalog="uniao">
+        <id name="idtipotitulo" type="java.lang.Integer">
+            <column name="idtipotitulo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <property name="descricao" type="string">
+            <column name="descricao" length="200" not-null="true" />
+        </property>
+        <property name="flagReceber" type="java.lang.Boolean">
+            <column name="flag_receber" />
+        </property>
+        <property name="flagPagar" type="java.lang.Boolean">
+            <column name="flag_pagar" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+        <property name="flagAtivo" type="java.lang.Boolean">
+            <column name="flag_ativo" />
+        </property>
+        <property name="flagGeranumero" type="java.lang.Boolean">
+            <column name="flag_geranumero" />
+        </property>
+        <property name="flagGeraduplicata" type="java.lang.Boolean">
+            <column name="flag_geraduplicata" />
+        </property>
+        <property name="flagGerapromissoria" type="java.lang.Boolean">
+            <column name="flag_gerapromissoria" />
+        </property>
+        <set name="tituloRecebers" inverse="true">
+            <key>
+                <column name="idtipotitulo" not-null="true" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TituloReceber" />
+        </set>
+        <set name="tituloPagars" inverse="true">
+            <key>
+                <column name="idtipotitulo" not-null="true" />
+            </key>
+            <one-to-many class="erp.modelos.banco.TituloPagar" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.LancamentoCaixa" table="lancamento_caixa" catalog="uniao">
+        <composite-id name="id" class="erp.modelos.banco.LancamentoCaixaId">
+            <key-property name="idempresa" type="int">
+                <column name="idempresa" />
+            </key-property>
+            <key-property name="dataLancamento" type="date">
+                <column name="data_lancamento" length="10" />
+            </key-property>
+            <key-property name="idlancamento" type="int">
+                <column name="idlancamento" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="conta" class="erp.modelos.banco.Conta" fetch="select">
+            <column name="idconta" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <property name="flagMovimento" type="char">
+            <column name="flag_movimento" length="1" not-null="true" />
+        </property>
+        <property name="valor" type="big_decimal">
+            <column name="valor" precision="17" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="observacao" length="200" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

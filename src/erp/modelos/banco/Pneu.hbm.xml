@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.Pneu" table="pneu" catalog="uniao">
+        <id name="idpneu" type="java.lang.Integer">
+            <column name="idpneu" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <many-to-one name="marca" class="erp.modelos.banco.Marca" fetch="select">
+            <column name="idmarca" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tamanhoPneu" class="erp.modelos.banco.TamanhoPneu" fetch="select">
+            <column name="idtamanho" not-null="true" />
+        </many-to-one>
+        <property name="lona" type="java.lang.Integer">
+            <column name="lona" />
+        </property>
+        <property name="valorComprado" type="big_decimal">
+            <column name="valor_comprado" precision="17" />
+        </property>
+        <property name="valorPreco" type="big_decimal">
+            <column name="valor_preco" precision="17" />
+        </property>
+        <property name="valorVendido" type="big_decimal">
+            <column name="valor_vendido" precision="17" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+        <property name="dataCompra" type="date">
+            <column name="data_compra" length="10" />
+        </property>
+        <property name="dataVenda" type="date">
+            <column name="data_venda" length="10" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="observacao" length="300" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" length="45" />
+        </property>
+        <property name="status" type="java.lang.Character">
+            <column name="status" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

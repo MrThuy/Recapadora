@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="297" pageHeight="793" columnWidth="275" leftMargin="11" rightMargin="11" topMargin="34" bottomMargin="22" uuid="13a73c29-722d-4b97-bbb5-658326db37ed">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="idpneu" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idpneu]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[codigo]]></fieldDescription>
+	</field>
+	<field name="tamanhoPneu" class="erp.modelos.banco.TamanhoPneu">
+		<fieldDescription><![CDATA[tamanhoPneu]]></fieldDescription>
+	</field>
+	<field name="idtamanhopneu" class="java.lang.Integer">
+		<fieldDescription><![CDATA[tamanhoPneu.idtamanhopneu]]></fieldDescription>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[tamanhoPneu.descricao]]></fieldDescription>
+	</field>
+	<field name="marca" class="erp.modelos.banco.Marca">
+		<fieldDescription><![CDATA[marca]]></fieldDescription>
+	</field>
+	<field name="idmarca" class="java.lang.Integer">
+		<fieldDescription><![CDATA[marca.idmarca]]></fieldDescription>
+	</field>
+	<field name="descricao_1" class="java.lang.String">
+		<fieldDescription><![CDATA[marca.descricao]]></fieldDescription>
+	</field>
+	<field name="valorPreco" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorPreco]]></fieldDescription>
+	</field>
+	<field name="lona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[lona]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.Character">
+		<fieldDescription><![CDATA[status]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="146" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="d5fa0031-6ef2-4c23-92e2-a60467905d52" x="0" y="0" width="275" height="146"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="f66cbe0d-f726-46ff-bf4b-9805f55dab03" x="6" y="10" width="34" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Pneu:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="ebd9572b-e383-4637-ba0f-2593aea74edf" x="40" y="10" width="48" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idpneu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb36f137-3b2a-4612-b188-dd5517c7c6da" x="6" y="31" width="269" height="45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="34" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="88a671c7-675e-49e9-b0ed-eeea5fe3195a" x="6" y="76" width="120" height="26"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4535043c-f897-4211-9608-b24ecbe097aa" x="6" y="102" width="82" height="38"/>
+				<textElement verticalAlignment="Middle">
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Valor:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="fe1f05dc-cb6e-4727-8137-5fe5448db047" x="88" y="102" width="187" height="38"/>
+				<textElement verticalAlignment="Middle">
+					<font size="30" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorPreco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9083c6a1-2018-490d-b631-50dd9daa154a" x="99" y="10" width="44" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Código:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a9fa0f6d-8fe4-4bd2-ab4f-4c9a68b5e6cf" x="143" y="10" width="65" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d5494ae6-b1f2-4c5c-870b-a90a74bd15ca" x="126" y="76" width="55" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lona}+"L"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="79743569-c48d-4203-a2ba-609cdc771891" x="181" y="76" width="69" height="26"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}=='O'?"Orig":"Rec"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

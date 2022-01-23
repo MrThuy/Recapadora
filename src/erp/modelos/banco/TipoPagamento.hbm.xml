@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/09/2013 17:06:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.TipoPagamento" table="tipo_pagamento" catalog="uniao">
+        <id name="idtipopagamento" type="java.lang.Integer">
+            <column name="idtipopagamento" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <property name="descricao" type="string">
+            <column name="descricao" length="200" not-null="true" />
+        </property>
+        <property name="flagAtivo" type="java.lang.Boolean">
+            <column name="flag_ativo" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+        <property name="flagGerarecibo" type="java.lang.Boolean">
+            <column name="flag_gerarecibo" />
+        </property>
+        <set name="baixaPagars" inverse="true">
+            <key>
+                <column name="idtipopagamento" />
+            </key>
+            <one-to-many class="erp.modelos.banco.BaixaPagar" />
+        </set>
+        <set name="baixaRecebers" inverse="true">
+            <key>
+                <column name="idtipopagamento" />
+            </key>
+            <one-to-many class="erp.modelos.banco.BaixaReceber" />
+        </set>
+    </class>
+</hibernate-mapping>

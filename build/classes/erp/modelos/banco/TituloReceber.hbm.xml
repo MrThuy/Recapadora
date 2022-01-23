@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/04/2012 16:50:13 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="erp.modelos.banco.TituloReceber" table="titulo_receber" catalog="uniao">
+        <composite-id name="id" class="erp.modelos.banco.TituloReceberId">
+            <key-property name="numero" type="int">
+                <column name="numero" />
+            </key-property>
+            <key-property name="parcela" type="int">
+                <column name="parcela" />
+            </key-property>
+            <key-property name="idcorrentista" type="int">
+                <column name="idcorrentista" />
+            </key-property>
+            <key-property name="idtipotitulo" type="int">
+                <column name="idtipotitulo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="correntista" class="erp.modelos.banco.Correntista" update="false" insert="false" fetch="select">
+            <column name="idcorrentista" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoTitulo" class="erp.modelos.banco.TipoTitulo" update="false" insert="false" fetch="select">
+            <column name="idtipotitulo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="erp.modelos.banco.Usuario" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+        <property name="dataEmissao" type="date">
+            <column name="data_emissao" length="10" />
+        </property>
+        <property name="dataVencimento" type="date">
+            <column name="data_vencimento" length="10" />
+        </property>
+        <property name="valor" type="big_decimal">
+            <column name="valor" precision="17" />
+        </property>
+        <property name="valorPago" type="big_decimal">
+            <column name="valor_pago" precision="17" />
+        </property>
+        <property name="juros" type="big_decimal">
+            <column name="juros" precision="17" />
+        </property>
+        <property name="dataInclusao" type="timestamp">
+            <column name="data_inclusao" length="19" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="observacao" length="300" />
+        </property>
+        <many-to-one name="idfinanceira" class="erp.modelos.banco.Correntista" fetch="select">
+            <column name="idfinanceira" />
+        </many-to-one>
+        <property name="dataPagamento" type="date">
+            <column name="data_pagamento" length="10" />
+        </property>
+        <set name="baixaRecebers" inverse="true">
+            <key>
+                <column name="numero" not-null="true" />
+                <column name="parcela" not-null="true" />
+                <column name="idcorrentista" not-null="true" />
+                <column name="idtipotitulo" not-null="true" />
+            </key>
+            <one-to-many class="erp.modelos.banco.BaixaReceber" />
+        </set>
+    </class>
+</hibernate-mapping>

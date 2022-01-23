@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d08f1f1-7755-463a-a8b4-d5035485b9d5">
+	<property name="ireport.zoom" value="1.4641000000000022"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="correntista" class="erp.modelos.banco.Correntista">
+		<fieldDescription><![CDATA[saldo.correntista]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[saldo.valor]]></fieldDescription>
+	</field>
+	<field name="dataLancamento" class="java.util.Date">
+		<fieldDescription><![CDATA[lancamentoCaixa.id.dataLancamento]]></fieldDescription>
+	</field>
+	<field name="idlancamento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[lancamentoCaixa.id.idlancamento]]></fieldDescription>
+	</field>
+	<field name="conta" class="erp.modelos.banco.Conta">
+		<fieldDescription><![CDATA[lancamentoCaixa.conta]]></fieldDescription>
+	</field>
+	<field name="observacao" class="java.lang.String">
+		<fieldDescription><![CDATA[lancamentoCaixa.observacao]]></fieldDescription>
+	</field>
+	<field name="valor_1" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[lancamentoCaixa.valor]]></fieldDescription>
+	</field>
+	<field name="lancamentoCaixa" class="erp.modelos.banco.LancamentoCaixa">
+		<fieldDescription><![CDATA[lancamentoCaixa]]></fieldDescription>
+	</field>
+	<sortField name="dataLancamento"/>
+	<sortField name="idlancamento"/>
+	<variable name="entrada" class="java.math.BigDecimal" resetType="Group" resetGroup="dia" calculation="Sum">
+		<variableExpression><![CDATA[$F{lancamentoCaixa}.getFlagMovimento()=='E'?$F{valor_1}:0.00]]></variableExpression>
+	</variable>
+	<variable name="saida" class="java.math.BigDecimal" resetType="Group" resetGroup="dia" calculation="Sum">
+		<variableExpression><![CDATA[$F{lancamentoCaixa}.getFlagMovimento()=='S'?$F{valor_1}:0.00]]></variableExpression>
+	</variable>
+	<variable name="saldo" class="java.math.BigDecimal" resetType="Group" resetGroup="dia">
+		<variableExpression><![CDATA[$F{valor}]]></variableExpression>
+	</variable>
+	<group name="dia" isStartNewPage="true" isResetPageNumber="true" keepTogether="true">
+		<groupExpression><![CDATA[$F{dataLancamento}]]></groupExpression>
+		<groupHeader>
+			<band height="17">
+				<textField pattern="#,##0.00">
+					<reportElement uuid="29038657-c7fe-4bfb-98e2-9ea7466ecfe9" x="477" y="0" width="78" height="14"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{valor}==null?0.00:$F{valor}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="e4c314e1-5520-4cd2-98f4-b1c32ae9dbb2" x="139" y="0" width="196" height="17"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Saldo Anterior:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="69">
+				<staticText>
+					<reportElement uuid="768ccadb-9b3f-44f4-bd24-09bc7dfc86c7" x="139" y="4" width="196" height="17"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total de E/S:]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="e8260035-d686-4c05-8dfc-a5bb9ca79db3" x="0" y="0" width="555" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.75" lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<textField pattern="#,##0.00">
+					<reportElement uuid="79ea3096-ff54-4b38-9059-b04e997bf50b" x="346" y="4" width="64" height="15"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{entrada}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement uuid="75c18005-5493-410d-a6e7-fbd36404225c" x="416" y="4" width="61" height="15"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saida}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="168e54af-ae16-4070-ac52-0dc9cbe54579" x="139" y="21" width="196" height="17"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Saldo Anterior:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="d545f775-376f-4e6a-99c5-f218e63c1bf1" x="139" y="38" width="196" height="17"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Saldo Atual:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="6a447e63-05c4-4958-95c0-8776b91f5cda" x="139" y="55" width="196" height="14"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Somas p/ Conferencia:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement uuid="0239ea1f-6a72-4d09-99e6-b8fd57fd8bd0" x="346" y="24" width="64" height="14"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valor}==null?0.00:$F{valor}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement uuid="42fec221-28c3-4b3f-9b63-1e07121667e1" x="416" y="41" width="61" height="14"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valor}==null?
+0.00:
+$F{valor}.add( $V{entrada}.subtract($V{saida} ) )]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement uuid="888282a6-bb1f-445e-a884-79a508f854ef" x="346" y="55" width="64" height="14"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valor}.add($V{entrada})]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement uuid="d6e1444d-cd60-40ce-a4ee-7e2f243d9d12" x="416" y="55" width="61" height="14"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saida}.add($F{valor}.add( $V{entrada}.subtract($V{saida} ) ))]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<pageHeader>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="6536345d-3753-4475-97f5-45b8d2c642d3" x="0" y="0" width="555" height="39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fluxo de Caixa Contábil]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b7daa6b5-e7af-4e33-ac91-f323db98b7b2" x="0" y="44" width="353" height="17"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{correntista}.getNome()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="ded6db7b-6372-4a0a-8ee1-53417ce11021" x="0" y="84" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="242d235f-527c-47e0-9776-d50263660401" x="28" y="65" width="165" height="16"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataLancamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="db40351f-8170-41f0-96ad-f9222328f692" x="0" y="65" width="28" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="31369bdb-17b7-4313-97de-00e9bd5a06c1" x="0" y="0" width="55" height="14"/>
+				<textElement/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9aeb2e98-c6cf-4ba0-8bd9-f5dfd940b72f" x="55" y="0" width="37" height="14"/>
+				<textElement/>
+				<text><![CDATA[Número]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8c4ddad-419b-4628-aae5-25c4fbde6cfb" x="92" y="0" width="43" height="14"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Conta]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="91989c01-63c2-4ba9-af2a-150f4b408e65" x="0" y="17" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="9904b68c-32c4-4d6e-b5c5-d8a052755c58" x="139" y="0" width="207" height="14"/>
+				<textElement/>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bef11789-94a1-4dbc-b833-94054c0b8ca8" x="353" y="0" width="57" height="14"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f1b8f7a5-f71f-447b-9c05-9a242dbcfe38" x="477" y="0" width="78" height="14"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Saldo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fcf18eef-5b8c-4a40-97d9-fe2646eb3fc7" x="416" y="0" width="58" height="14"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Saida]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ef0d68ef-e223-42ec-a703-e7a635c595eb" x="55" y="0" width="37" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idlancamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="51ca42e0-0e2f-41b4-8424-b832ee5501c3" x="0" y="0" width="55" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataLancamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="2c735c1f-1041-490c-8869-7e3cbb62d626" x="350" y="0" width="60" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lancamentoCaixa}.getFlagMovimento()=='E'?$F{valor_1}:""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="430fffd7-3f18-4c55-bfa8-a7f638e0a57f" x="139" y="13" width="196" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{observacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0533e445-2fa6-4e07-be4d-e1918ae1781f" x="92" y="0" width="43" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{conta}.getIdconta()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b0a25407-5fe1-4a9f-816b-1582520c51f1" x="139" y="0" width="196" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{conta}.getDescricao()]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="925b070d-3dfd-4bd6-b76c-080c0ef5f114" x="416" y="0" width="58" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lancamentoCaixa}.getFlagMovimento()=='S'?$F{valor_1}:""]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="f611feb6-49e6-4eee-9672-d89f1f833660" x="477" y="0" width="78" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}==null?
+0.00:
+$F{valor}.add( $V{entrada}.subtract($V{saida} ) )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

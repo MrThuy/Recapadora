@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="623" pageHeight="306" columnWidth="380" leftMargin="102" rightMargin="141" topMargin="25" bottomMargin="17">
+	<property name="ireport.zoom" value="1.7715610000000015"/>
+	<property name="ireport.x" value="129"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="idcorrentista" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idcorrentista]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="endereco" class="java.lang.String">
+		<fieldDescription><![CDATA[endereco]]></fieldDescription>
+	</field>
+	<field name="bairro" class="java.lang.String">
+		<fieldDescription><![CDATA[bairro]]></fieldDescription>
+	</field>
+	<field name="cep" class="java.lang.String">
+		<fieldDescription><![CDATA[cep]]></fieldDescription>
+	</field>
+	<field name="cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[cidade]]></fieldDescription>
+	</field>
+	<field name="uf" class="java.lang.String">
+		<fieldDescription><![CDATA[uf]]></fieldDescription>
+	</field>
+	<field name="cnpg" class="java.lang.String">
+		<fieldDescription><![CDATA[cnpg]]></fieldDescription>
+	</field>
+	<field name="ie" class="java.lang.String">
+		<fieldDescription><![CDATA[ie]]></fieldDescription>
+	</field>
+	<field name="fone" class="java.lang.String">
+		<fieldDescription><![CDATA[fone]]></fieldDescription>
+	</field>
+	<field name="fone2" class="java.lang.String">
+		<fieldDescription><![CDATA[fone2]]></fieldDescription>
+	</field>
+	<field name="celular" class="java.lang.String">
+		<fieldDescription><![CDATA[celular]]></fieldDescription>
+	</field>
+	<field name="contato" class="java.lang.String">
+		<fieldDescription><![CDATA[contato]]></fieldDescription>
+	</field>
+	<field name="emailxml" class="java.lang.String">
+		<fieldDescription><![CDATA[emailxml]]></fieldDescription>
+	</field>
+	<field name="emailcontato" class="java.lang.String">
+		<fieldDescription><![CDATA[emailcontato]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[cpf]]></fieldDescription>
+	</field>
+	<field name="observasao" class="java.lang.String">
+		<fieldDescription><![CDATA[observasao]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="222" splitType="Stretch">
+			<textField>
+				<reportElement x="29" y="0" width="40" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idcorrentista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="0" width="270" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="17" width="329" height="18"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{endereco}+( $F{bairro}.isEmpty() ? "" : " - " + $F{bairro} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="28" y="35" width="116" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="36" width="124" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="36" width="43" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{uf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="51" width="139" height="16"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[($F{cpf}.replaceAll("-","").replaceAll("\\.","").trim().isEmpty()? $F{cnpg}: $F{cpf} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="52" width="115" height="17"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{ie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="28" y="68" width="164" height="18"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{fone} + " / " + $F{celular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="69" width="150" height="16"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{fone2}
+]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="86" width="320" height="17"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{contato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="103" width="312" height="18"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{emailxml} + " " + $F{emailcontato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="129" width="362" height="93"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{observasao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DuplicataVU" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3bb0683f-21c2-455e-ac22-90c096517289">
+	<property name="ireport.zoom" value="1.6105100000000179"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="31"/>
+	<parameter name="logo" class="java.awt.Image"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="idcorrentista" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id.idcorrentista]]></fieldDescription>
+	</field>
+	<field name="idtipotitulo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id.idtipotitulo]]></fieldDescription>
+	</field>
+	<field name="numero" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id.numero]]></fieldDescription>
+	</field>
+	<field name="parcela" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id.parcela]]></fieldDescription>
+	</field>
+	<field name="bairro" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.bairro]]></fieldDescription>
+	</field>
+	<field name="cep" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.cep]]></fieldDescription>
+	</field>
+	<field name="cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.cidade]]></fieldDescription>
+	</field>
+	<field name="cnpg" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.cnpg]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.cpf]]></fieldDescription>
+	</field>
+	<field name="endereco" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.endereco]]></fieldDescription>
+	</field>
+	<field name="ie" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.ie]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.nome]]></fieldDescription>
+	</field>
+	<field name="uf" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.uf]]></fieldDescription>
+	</field>
+	<field name="fone" class="java.lang.String">
+		<fieldDescription><![CDATA[correntista.fone]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="dataEmissao" class="java.util.Date">
+		<fieldDescription><![CDATA[dataEmissao]]></fieldDescription>
+	</field>
+	<field name="dataVencimento" class="java.util.Date">
+		<fieldDescription><![CDATA[dataVencimento]]></fieldDescription>
+	</field>
+	<field name="idfinanceira" class="erp.modelos.banco.Correntista">
+		<fieldDescription><![CDATA[idfinanceira]]></fieldDescription>
+	</field>
+	<field name="pesquisa" class="java.lang.String">
+		<fieldDescription><![CDATA[idfinanceira.pesquisa]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="372" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="9d63c82a-5db8-41a4-b1f5-5708e65de909" x="127" y="184" width="428" height="124"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="10c257ff-f135-417e-9fe4-6419e38104b3" x="2" y="111" width="421" height="42"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="34236577-d59e-4095-8cbc-ac00b2ac670f" x="2" y="0" width="553" height="104"/>
+			</rectangle>
+			<textField pattern="dd/MM/yy">
+				<reportElement uuid="a75006c9-4639-4b1f-8023-8b18488e7539" x="416" y="85" width="139" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dataEmissao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6e18cb9a-d104-4a05-a514-db28db892fca" x="3" y="138" width="103" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement uuid="6d1ade2e-88db-4b35-8826-7455c1155b0d" x="106" y="138" width="100" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ab213cc9-f371-4dcc-b6a1-60bf77c3958f" x="205" y="137" width="94" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numero}+"/"+$F{parcela}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy">
+				<reportElement uuid="f63846f2-a165-481a-8f88-8e17b0f9b5b2" x="316" y="138" width="100" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dataVencimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d0ea6622-700b-47f9-a3fe-00964e617e45" x="201" y="187" width="331" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{idcorrentista}+" - "+$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="18f13887-f641-4870-8059-22c46384aded" x="201" y="204" width="331" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{endereco}+( $F{bairro}.isEmpty() ? "" : " - " + $F{bairro} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="71f077bf-2c6d-4763-a705-fedc225ddb5b" x="201" y="221" width="143" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="50d9bc02-bb37-4521-bc53-3ac9f6d2fbb3" x="355" y="222" width="79" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0a3edc43-7d56-4c74-8d58-69190a7d0d47" x="474" y="221" width="81" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{uf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9fbe21df-61e8-4557-aa7c-15d97ab6ef7a" x="201" y="238" width="143" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fdfecd7e-84df-4db6-8a1e-517273a02201" x="474" y="239" width="81" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="90e4a742-3939-44f6-bbff-c684465098db" x="201" y="254" width="215" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{cpf}.replaceAll("-","").replaceAll("\\.","").trim().isEmpty()? $F{cnpg}: $F{cpf} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2841799a-92f7-4bc4-a56c-a31c7b8c20fb" x="474" y="256" width="81" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="56df572d-9e6a-49c0-a75c-3656217c7212" x="198" y="277" width="334" height="31"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[erp.util.ERPExtenso.ValorPorExtenso($F{valor})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0fba3597-ca83-486a-9f87-61389fb828eb" x="80" y="4" width="226" height="25"/>
+				<textElement textAlignment="Center">
+					<font size="19" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Vulcanizadora União Ltda.
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="734991ab-ba63-413d-9888-aa0557b48a6e" x="90" y="29" width="211" height="25"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Rua Luiz Viecelli, 1700 - Santa Gema
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="36b79ddd-af34-4ddd-8514-301f38adff3b" x="90" y="49" width="211" height="25"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fone/Fax: (0**49) 3566-1797 / 3566-7774
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="164b8ea5-8df0-4014-bdd6-fc233de06430" x="6" y="83" width="300" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="37967f1a-e3d7-40a3-9e97-e3c10fd77dee" x="5" y="85" width="301" height="19"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[89.560-000 - Videira     -         Santa Catarina
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ebc24e72-671b-4133-acda-471e21d3d699" x="316" y="0" width="1" height="104"/>
+			</line>
+			<staticText>
+				<reportElement uuid="072a6e09-0874-4cc2-a485-6bc7c59516bc" x="323" y="5" width="232" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Endereço: Rua Luiz Viecelli, 1700
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b48b786b-23cd-46d3-92ba-37ac6ffeba2c" x="323" y="85" width="100" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Data da Emissão:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="16a6070e-db5e-47b2-9860-1375ec3477db" x="2" y="112" width="103" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="36f90aa5-86a8-4278-9f37-95156cffa348" x="105" y="111" width="1" height="41"/>
+			</line>
+			<line>
+				<reportElement uuid="4352a9aa-6ec3-43d2-bc20-c0a6552cef1a" x="2" y="137" width="421" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="b2169349-d0cd-413d-ae40-2e875e5abca9" x="106" y="125" width="100" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Valor (R$)
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6cbf91e0-4b3a-4d76-9c96-1c19ec869af7" x="205" y="111" width="1" height="41"/>
+			</line>
+			<line>
+				<reportElement uuid="dbbcde24-2ee1-4915-8788-428fc29ff6e3" x="300" y="111" width="1" height="42"/>
+			</line>
+			<staticText>
+				<reportElement uuid="a558ac2e-01d6-4b82-8980-1fcbdfc5489f" x="205" y="125" width="94" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nº de Ordem]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e500200c-5770-42fe-8555-b55307eb80f6" x="300" y="112" width="123" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vencimento
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b76410a4-4bd5-42e1-b3c3-d831517d45e3" x="144" y="188" width="51" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Sacado:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3685b62d-8450-424a-bc4c-a57bdefaa1e8" x="144" y="205" width="51" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Endereço:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ac7d8f9-1a7e-4684-a962-1dbbcc500d59" x="144" y="222" width="51" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Município
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="47caed6e-ebd7-4d48-a6d0-1d790615d411" x="127" y="239" width="68" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Praça de Pgto:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e2824e06-f9d4-4f95-aab6-3172c0a29461" x="163" y="255" width="32" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[CNPJ:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9ec2a974-082b-4c6f-a646-33453c174e5c" x="422" y="256" width="51" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<text><![CDATA[Insc. Est.:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8b7cbd3-9fa8-43db-bcc3-5b2f037eb1d9" x="436" y="222" width="38" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<text><![CDATA[Estado:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d6b553e5-6922-4c8b-a8b1-4b3d1d68e4c3" x="435" y="239" width="38" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<text><![CDATA[CEP:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c47f0fe1-2b65-438f-aca0-e62e396c292c" x="127" y="277" width="68" height="31"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<text><![CDATA[Valor por Extenso:
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="75d42d85-c5fb-44a6-92a6-0e2bb60cad8b" x="127" y="274" width="428" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement uuid="8a0ed09a-e416-49f6-b4ee-cb127524cd34" x="436" y="111" width="119" height="73"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="ce3ec436-29a2-4249-a843-c09aace4ca67" x="436" y="114" width="119" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Para uso da Instituição Financeira
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b7f072ba-8ddf-4a8b-8642-74386f3bb3e7" x="127" y="309" width="428" height="27"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Reconheço(emos) a exatidão desta DUPLICATA DE VENDA MERCANTIL na importância acima, que pagarei(emos) à VULCANIZADORA UNIÃO LTDA. 
+ou à sua ordem na praça e vencimento(s) acima indicado(s).
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c54a71d1-f939-4d2c-92c5-c97d5d0070a6" x="179" y="359" width="100" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA DO ACEITE
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c67d7f70-0463-4710-adf1-a712f1a8f830" x="359" y="359" width="196" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASSINATURA DO SACADO
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="811364ac-a146-484e-830a-476e07c08daf" x="127" y="358" width="196" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="9e4331cb-bf1d-483c-9661-d5105b8095c0" x="359" y="358" width="196" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="5988adda-2c73-4077-80d6-27e4f2fa5000" x="436" y="134" width="119" height="50"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[( $F{idfinanceira} != null ? $F{pesquisa} : "" )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a5a3ea7e-6ad5-43e5-9a3c-1bce6602a1b4" x="127" y="156" width="100" height="13"/>
+				<textElement/>
+				<text><![CDATA[Descontos de
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c0ffbbf9-bcc0-4548-a1d0-33a95dbc75bb" x="127" y="169" width="100" height="19"/>
+				<textElement/>
+				<text><![CDATA[Condições Especiais
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="54fd3865-27f9-49ad-b66f-dae9fb120b0e" x="323" y="157" width="23" height="13"/>
+				<textElement/>
+				<text><![CDATA[Até
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="891c4950-36dd-4b40-b8a4-9d2ee6890a14" x="104" y="169" width="1" height="173"/>
+			</line>
+			<staticText>
+				<reportElement uuid="70053604-a1e1-482a-bdc0-1a26252ef3a8" x="106" y="169" width="11" height="173"/>
+				<textElement textAlignment="Center" rotation="Left">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASSINATURA DO EMITENTE
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e5251c0e-7dcf-40cf-b9d5-6932e72e228d" x="323" y="21" width="232" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Cidade: Videira
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f0e66111-2bba-49b4-b164-22f0814e2e3f" x="323" y="53" width="232" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[CNPJ: 83.039.446/0001-57
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3b1b996b-5558-4506-af5f-1622bc073191" x="323" y="69" width="232" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Inscr. Estadual: 250.008.394
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f774a816-1918-4c2f-9738-552a67c12620" x="323" y="37" width="232" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Estado: Santa Catarina
+                
+                
+                
+                
+                ]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="9b6d0341-0e45-4af6-9f27-cafe79082cc0" x="6" y="4" width="74" height="75"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="1c48ff4d-a4c4-45f0-be52-8a78d0ef4ec7" x="205" y="111" width="95" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Duplicata]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="18acd759-bf6c-4e49-91a9-52206ad9ca4e" x="106" y="113" width="100" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fatura / Duplicata]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="41a61c24-2b5e-4504-99f9-6b8338497c55" x="106" y="125" width="195" height="1"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
